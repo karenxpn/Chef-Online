@@ -5,11 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.store.recipes.R
+import com.developer.store.recipes.callbacks.ClickCategory
 import kotlinx.android.synthetic.main.single_recipe_category.view.*
 
 class RecipeListAdapter(
     private val images: List<Int>,
-    private val category: List<String>): RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>() {
+    private val category: List<String>,
+    private val clickCategory: ClickCategory
+): RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>() {
 
     class RecipeViewHolder( val card: View ): RecyclerView.ViewHolder( card )
 
@@ -27,6 +30,10 @@ class RecipeListAdapter(
                 categoryImage.setImageResource(images[i])
                 categoryTitle.text = category[i]
             }
+        }
+
+        holder.card.setOnClickListener {
+            clickCategory.categoryClicked( category[i] )
         }
     }
 

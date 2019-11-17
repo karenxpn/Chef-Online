@@ -1,19 +1,20 @@
 package com.developer.store.recipes.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.store.recipes.R
 import com.developer.store.recipes.adapters.RecipeListAdapter
+import com.developer.store.recipes.callbacks.ClickCategory
 import com.developer.store.recipes.repositories.RecipeListRepo
 import com.developer.store.recipes.viewmodels.MainVMFactory
 import com.developer.store.recipes.viewmodels.MainViewModel
-import com.developer.store.utils.DividerItemDecoration
+import com.developer.store.recipes.utils.DividerItemDecoration
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ClickCategory {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,14 @@ class MainActivity : AppCompatActivity() {
         recipeCategoryList.addItemDecoration(divider)
 
 
-        val adapter = RecipeListAdapter( viewModel.data.first, viewModel.data.second )
+        val adapter = RecipeListAdapter(viewModel.data.first, viewModel.data.second, this)
         recipeCategoryList.adapter = adapter
+    }
+
+    override fun categoryClicked(title: String) {
+        val intent = Intent( this, SingleCategory::class.java )
+        intent.putExtra("title", title )
+        startActivity(intent)
+        finish()
     }
 }

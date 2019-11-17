@@ -1,4 +1,4 @@
-package com.developer.store.utils
+package com.developer.store.recipes.utils
 
 
 import android.graphics.Canvas
