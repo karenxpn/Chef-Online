@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.developer.store.recipes.R
 
-class SingleCategory : AppCompatActivity() {
+class SelectedCategory : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_category)
 
-        title = intent.getStringExtra("title")
+        ///get the intent passed from main activity ( title )
+        val intentTitle = intent.getStringExtra("title")
+        title = intentTitle
+
+
+        ///get the list of dishes in current category
 
 
     }
@@ -20,5 +25,6 @@ class SingleCategory : AppCompatActivity() {
         super.onBackPressed()
 
         startActivity(Intent( this, MainActivity::class.java))
+        finish()
     }
 }

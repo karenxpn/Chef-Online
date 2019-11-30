@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.store.recipes.R
 import com.developer.store.recipes.callbacks.ClickCategory
-import kotlinx.android.synthetic.main.single_recipe_category.view.*
+import kotlinx.android.synthetic.main.single_category_preview.view.*
 
 class RecipeListAdapter(
     private val images: List<Int>,
@@ -18,7 +18,7 @@ class RecipeListAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
-        val view = LayoutInflater.from( parent.context ).inflate(R.layout.single_recipe_category, parent, false)
+        val view = LayoutInflater.from( parent.context ).inflate(R.layout.single_category_preview, parent, false)
         return RecipeViewHolder( view )
     }
 

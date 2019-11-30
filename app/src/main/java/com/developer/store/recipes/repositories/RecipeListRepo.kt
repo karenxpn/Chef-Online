@@ -5,6 +5,8 @@ import com.developer.store.recipes.R
 import com.developer.store.recipes.services.RecipeListService
 
 class RecipeListRepo(private val context: Context ): RecipeListService {
+
+    ///get the pair of category <image, name>
     override fun getCategoryInfo(): Pair<List<Int>, List<String>> {
         return Pair(getImageList(), getCategoryName() )
     }

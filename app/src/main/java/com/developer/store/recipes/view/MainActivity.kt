@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity(), ClickCategory {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        ///initialization of views and viewmodel
         val recipeCategoryList = findViewById<RecyclerView>(R.id.recipeList)
         val divider = DividerItemDecoration( resources.getDrawable(R.drawable.divider))
         val repo = RecipeListRepo(this)
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity(), ClickCategory {
             ).get(MainViewModel::class.java)
         }
 
+
+        /// List all categories in recycler view
         recipeCategoryList.layoutManager = LinearLayoutManager( this )
         recipeCategoryList.addItemDecoration(divider)
 
@@ -37,8 +41,9 @@ class MainActivity : AppCompatActivity(), ClickCategory {
         recipeCategoryList.adapter = adapter
     }
 
+    /// callback of clicked category opening single one
     override fun categoryClicked(title: String) {
-        val intent = Intent( this, SingleCategory::class.java )
+        val intent = Intent( this, SelectedCategory::class.java )
         intent.putExtra("title", title )
         startActivity(intent)
         finish()

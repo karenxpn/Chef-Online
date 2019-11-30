@@ -2,5 +2,9 @@
 <resources>
     <dimen name="category_image_width">200dp</dimen>
     <dimen name="category_title_size">20sp</dimen>
+    <dimen name="single_recipe_preview_image_width">100dp</dimen>
+    <dimen name="single_recipe_preview_image_height">100dp</dimen>
+    <dimen name="single_recipe_preview_title_size">20sp</dimen>
+    <dimen name="single_recipe_preview_size">16sp</dimen>
 
 </resources>
