@@ -1,3 +1,7 @@
 package com.developer.store.recipes.models
 
-data class DishModel ( var image: String? = null, var title: String? = null, var recipe: String? = null )
+import com.google.gson.annotations.SerializedName
+
+data class DishModel (@SerializedName( "image" )var image: String? = null,
+                      @SerializedName( "title" )var title: String? = null,
+                      @SerializedName( "recipe" )var recipe: String? = null )

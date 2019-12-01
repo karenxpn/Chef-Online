@@ -15,6 +15,7 @@ android {
         applicationId "com.developer.store.recipes"
         minSdkVersion 16
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -36,9 +37,12 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    implementation 'androidx.multidex:multidex:2.0.1'
 
-    implementation 'com.google.firebase:firebase-core:17.2.1'
 
+    implementation 'com.google.firebase:firebase-core:17.2.1'               ///Analytics
+    implementation 'com.google.firebase:firebase-database:19.2.0'           ///Storage
+    implementation 'com.google.firebase:firebase-firestore:21.3.0'
     //RxJava
     implementation "io.reactivex.rxjava2:rxjava:2.2.7"
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
