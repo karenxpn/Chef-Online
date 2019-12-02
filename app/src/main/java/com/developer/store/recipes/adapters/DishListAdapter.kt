@@ -30,7 +30,7 @@ class DishListAdapter(private val list: List<DishModel>,
                     .into(recipePreviewImage)
 
                 recipePreviewTitle.text = list[i].title
-                recipePreviewText.text = list[i].recipe
+                recipePreviewText.text = list[i].recipe?.replace("  ", "\n" )
             }
         }
 

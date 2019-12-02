@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SelectedDish">
+    tools:context=".view.SelectedDish"
+    android:padding="16dp"
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/recipeImage"
+            app:riv_corner_radius="8dp"
+            app:riv_border_color="@color/transparent"
+            android:layout_width="@dimen/selected_dish_image_width"
+            android:layout_height="@dimen/selected_dish_image_height"/>
+
+        <TextView
+            android:id="@+id/recipeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="@dimen/single_recipe_preview_title_size"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/recipe"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/selected_dish_recipe_text_size"/>
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

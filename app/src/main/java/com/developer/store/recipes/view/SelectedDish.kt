@@ -1,12 +1,12 @@
 package com.developer.store.recipes.view
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.developer.store.recipes.R
 import com.developer.store.recipes.models.DishModel
+import com.developer.store.recipes.utils.GlideApp
+import com.makeramen.roundedimageview.RoundedImageView
 
 class SelectedDish : AppCompatActivity() {
 
@@ -14,6 +14,19 @@ class SelectedDish : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selected_dish)
 
+        val recipe = findViewById<TextView>(R.id.recipe)
+        val recipeTitle = findViewById<TextView>(R.id.recipeTitle)
+        val recipeImage = findViewById<RoundedImageView>(R.id.recipeImage)
+
         val dish = intent.getSerializableExtra("dish") as DishModel
+
+        title = dish.title
+
+        recipe.text = dish.recipe!!.replace( "  ", "\n\n" )
+        recipeTitle.text = dish.title
+
+        GlideApp.with(recipeImage.context).load(dish.image).into(recipeImage)
+
+
     }
 }
