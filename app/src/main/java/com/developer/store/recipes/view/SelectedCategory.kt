@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.store.recipes.R
 import com.developer.store.recipes.adapters.DishListAdapter
+import com.developer.store.recipes.callbacks.ClickDish
+import com.developer.store.recipes.models.DishModel
 import com.developer.store.recipes.repositories.FirebaseRepository
 import com.developer.store.recipes.utils.DividerItemDecoration
 import com.developer.store.recipes.viewmodels.DishVMFactory
 import com.developer.store.recipes.viewmodels.DishViewModel
 
-class SelectedCategory : AppCompatActivity() {
+class SelectedCategory : AppCompatActivity(), ClickDish {
 
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +47,7 @@ class SelectedCategory : AppCompatActivity() {
         viewModel.getData(intentTitle).subscribe {
             ///loading animation until data is fetched
             progressBar.visibility = View.GONE
-            dishList.adapter = DishListAdapter( it )
+            dishList.adapter = DishListAdapter( it, this )
         }
     }
 
@@ -55,5 +57,12 @@ class SelectedCategory : AppCompatActivity() {
         startActivity(Intent( this, MainActivity::class.java))
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
+    }
+
+    override fun dishClicked(dishModel: DishModel) {
+        val intent = Intent( this, SelectedDish::class.java)
+        intent.putExtra("dish", dishModel )
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 }

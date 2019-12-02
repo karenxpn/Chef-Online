@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
         <activity
             android:name=".view.SplashScreen"
             android:theme="@style/AppTheme.SplashScreen">
@@ -27,10 +26,13 @@
         <activity
             android:name=".view.MainActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".view.SelectedCategory"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".view.SelectedDish"
+            android:screenOrientation="portrait"/>
 
     </application>
 

@@ -5,11 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.store.recipes.R
+import com.developer.store.recipes.callbacks.ClickDish
 import com.developer.store.recipes.models.DishModel
 import com.developer.store.recipes.utils.GlideApp
 import kotlinx.android.synthetic.main.single_recipe_preview.view.*
 
-class DishListAdapter(private val list: List<DishModel>): RecyclerView.Adapter<DishListAdapter.DishListViewHolder>() {
+class DishListAdapter(private val list: List<DishModel>,
+                      private val clickDish: ClickDish): RecyclerView.Adapter<DishListAdapter.DishListViewHolder>() {
 
     class DishListViewHolder( val card: View ): RecyclerView.ViewHolder( card )
 
@@ -30,6 +32,10 @@ class DishListAdapter(private val list: List<DishModel>): RecyclerView.Adapter<D
                 recipePreviewTitle.text = list[i].title
                 recipePreviewText.text = list[i].recipe
             }
+        }
+
+        holder.card.setOnClickListener {
+            clickDish.dishClicked(list[i] )
         }
     }
 }
