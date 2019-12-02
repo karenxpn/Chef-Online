@@ -10,7 +10,8 @@ class FirebaseRepository( val context: Context ): FirebaseService {
 
     private val ref = FirebaseFirestore.getInstance()
 
-
+    ///get data from firebase
+    ///pass category title to get the data by category
     override fun getData(category: String): Observable<ArrayList<DishModel>> {
         val query: com.google.firebase.firestore.Query = ref.collection(category)
         val dishArray = ArrayList<DishModel>()
