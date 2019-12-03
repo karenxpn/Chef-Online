@@ -14,19 +14,17 @@ class SelectedDish : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selected_dish)
 
+        val dish = intent.getSerializableExtra("dish") as DishModel
+        title = dish.title
+
         val recipe = findViewById<TextView>(R.id.recipe)
         val recipeTitle = findViewById<TextView>(R.id.recipeTitle)
         val recipeImage = findViewById<RoundedImageView>(R.id.recipeImage)
 
-        val dish = intent.getSerializableExtra("dish") as DishModel
-
-        title = dish.title
-
-        recipe.text = dish.recipe!!.replace( "  ", "\n\n" )
-        recipeTitle.text = dish.title
 
         GlideApp.with(recipeImage.context).load(dish.image).into(recipeImage)
-
+        recipe.text = dish.recipe!!.replace( "  ", "\n\n" )
+        recipeTitle.text = dish.title
 
     }
 }
