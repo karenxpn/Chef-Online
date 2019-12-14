@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.store.recipes.R
 import com.developer.store.recipes.callbacks.ClickCategory
+import com.developer.store.recipes.utils.GlideApp
 import kotlinx.android.synthetic.main.single_category_preview.view.*
 
 class RecipeListAdapter(
@@ -27,7 +28,7 @@ class RecipeListAdapter(
     override fun onBindViewHolder(holder: RecipeViewHolder, i: Int) {
         with ( holder ) {
             with ( card ) {
-                categoryImage.setImageResource(images[i])
+                GlideApp.with(categoryImage.context).load(images[i]).into(categoryImage)
                 categoryTitle.text = category[i]
             }
         }
