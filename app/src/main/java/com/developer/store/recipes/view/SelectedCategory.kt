@@ -18,6 +18,7 @@ import com.developer.store.recipes.utils.DividerItemDecoration
 import com.developer.store.recipes.viewmodels.DishVMFactory
 import com.developer.store.recipes.viewmodels.DishViewModel
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class SelectedCategory : AppCompatActivity(), ClickDish {
 
     @SuppressLint("CheckResult")
