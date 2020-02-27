@@ -30,7 +30,9 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="@dimen/single_recipe_preview_title_size"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:maxLines="3"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/recipePreviewText"

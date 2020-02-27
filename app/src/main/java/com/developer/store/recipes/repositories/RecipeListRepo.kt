@@ -16,7 +16,6 @@ class RecipeListRepo(private val context: Context ): RecipeListService {
             R.drawable.desserts,
             R.drawable.cookies,
             R.drawable.salads,
-            R.drawable.pasta,
             R.drawable.dishes,
             R.drawable.soups
         )
