@@ -37,6 +37,12 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="@dimen/selected_dish_recipe_text_size"/>
+
+        <FrameLayout
+            android:id="@+id/ad_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 
 

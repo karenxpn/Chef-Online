@@ -7,7 +7,7 @@
     <dimen name="single_recipe_preview_title_size">20sp</dimen>
     <dimen name="single_recipe_preview_size">16sp</dimen>
     <dimen name="margin_selected_recipe">16dp</dimen>
-    <dimen name="selected_dish_recipe_text_size">17sp</dimen>
+    <dimen name="selected_dish_recipe_text_size">18sp</dimen>
     <dimen name="selected_dish_image_height">200dp</dimen>
     <dimen name="selected_dish_image_width">200dp</dimen>
 </resources>

@@ -1,8 +1,8 @@
 package com.developer.store.recipes.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +10,11 @@ import com.developer.store.recipes.R
 import com.developer.store.recipes.adapters.RecipeListAdapter
 import com.developer.store.recipes.callbacks.ClickCategory
 import com.developer.store.recipes.repositories.RecipeListRepo
+import com.developer.store.recipes.utils.DividerItemDecoration
 import com.developer.store.recipes.viewmodels.MainVMFactory
 import com.developer.store.recipes.viewmodels.MainViewModel
-import com.developer.store.recipes.utils.DividerItemDecoration
+import com.facebook.appevents.AppEventsLogger
+import com.squareup.okhttp.internal.Internal.logger
 
 class MainActivity : AppCompatActivity(), ClickCategory {
 
@@ -39,6 +41,8 @@ class MainActivity : AppCompatActivity(), ClickCategory {
 
         val adapter = RecipeListAdapter(viewModel.data.first, viewModel.data.second, this)
         recipeCategoryList.adapter = adapter
+
+        logSentFriendRequestEvent()
     }
 
     /// callback of clicked category opening single one
@@ -47,5 +51,13 @@ class MainActivity : AppCompatActivity(), ClickCategory {
         intent.putExtra("title", title )
         startActivity(intent)
         finish()
+    }
+
+    /**
+     * This function assumes logger is an instance of AppEventsLogger and has been
+     * created using AppEventsLogger.newLogger() call.
+     */
+    fun logSentFriendRequestEvent() {
+        AppEventsLogger.newLogger(this).logEvent("sentFriendRequest")
     }
 }

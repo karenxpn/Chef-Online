@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">Chef Online</string>
+    <string name="facebook_app_id" translatable="false">2342854439347663</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2342854439347663</string>
+    <string name="ad_attribution" translatable="false">Ad</string>
+
 
     <string-array name="listOfDishes">
         <item name="desserts">Աղանդեր</item>
